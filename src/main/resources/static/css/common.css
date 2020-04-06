@@ -1,5 +1,7 @@
 @charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');
 html{
+	font-family: 'Nanum Gothic', sans-serif;
 	font-size: 16px;
 	 height: 100%
 }
@@ -7,31 +9,42 @@ body,h1,h2,h3,h4,h5,ul{
 	margin: 0; padding: 0; height: 100%;
 }
 ol, ul {
-	list-style: none;
+	list-style: none;  
+	width: 100%;
 }
 input,textarea,button:focus {
     outline: none;
 }
-
-/*header*/
-header{
-	min-height: 80px;
-	background-color: #ffffff;
-	color: #d3bde8;
-	width: 100%;
-	border-bottom: 1px solid;
-	border-color: rgb(238,238,238);
-	float: left;
-}
-nav{
+/*login header*/
+#login_header {
+	padding: 0;
 	margin: 0 calc((100% - 1200px) / 2);
 }
-nav div{
+#login_header ul:after{
+	content: '';
+	display: block;
+	clear: both;
+}
+#login_header ul li{
+	width: 80px;
+	float: right;
+	margin: 10px 0;
+}
+/*header*/
+header{
+	background-color: #ffffff;
+	border-bottom: 1px solid;
+	border-color: rgb(238,238,238);
+	width: 100%;
 	float: left;
+}
+#logo_header{
+	padding: 0;
+	margin: 0 calc((100% - 1200px) / 2);
 }
 .logo{
 	padding-top: 20px;
-	
+	float: left;
 }
 .logo span{
 	margin-left: 30px;
@@ -47,6 +60,7 @@ nav div{
 	margin-top: 28px;
 	border-bottom: 1px solid;
 	border-color: black;
+	float: left;
 }
 #search_bar{
 	padding: 40px 20px 20px 20px;
@@ -64,17 +78,17 @@ nav div{
 }
 /*login*/
 #login_btn{
-	background-color: white;
+	background-color: #f3d814;
 	cursor: pointer;
 	padding: 10px;
-	border: 1px solid;
-	border-radius: 15px;
-	border-color: #000000;
+	border:0;
+	border-radius: 10px;
 	margin: 55px 0 0 50px;
-	
+	color: #4a250d;
+	font-weight: bold;
 }
 #login_btn:hover{
-	background-color: #6c3600;
+	background-color: #974b00;
 	color: white;
 	border-color: black;
 }
@@ -86,6 +100,20 @@ nav div{
 	margin-right:5px;
 	width: 30px;
 	height: 30px;
+}
+/*category*/
+#category_btn{
+	background-color: white;
+	cursor: pointer;
+	padding: 10px;
+	border: 0;
+	margin: 20px 0 0 40px;
+	position: relative;
+	top: 10px;
+}
+#category_img{
+	width: 50px;
+	height: 50px;
 }
 /*section*/
 section{
