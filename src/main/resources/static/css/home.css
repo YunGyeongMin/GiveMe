@@ -1,2 +1,43 @@
 @charset "UTF-8";
-#home_section
+article div:after{
+	content: '';
+	display: block;
+	clear: both;
+}
+/*상품정보*/
+.home_title{
+	margin-top: 30px;
+	text-decoration: underline;
+	text-underline-position: under;
+}
+.item_div{
+	width: calc((100% - 240px) / 4);
+	float: left;
+	margin: 30px 30px;
+	text-align: center;
+	cursor: pointer;
+}
+.item_div img{
+	width: 240px;
+	height: 240px;
+}
+.item_div h4{
+	margin-top: 10px;
+}
+.item_div h5{
+	margin-top: 10px;
+	color: #ff8080;
+}
+/*광고창*/
+#ad{
+	border: 1px solid;
+	width: 740px;
+	height: 120px;
+	text-align: center;
+	margin: 0px auto;
+	line-height: 120px;
+	font-size: 50px;
+}
+#ad_article{
+	padding-top: 20px;
+}

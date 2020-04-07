@@ -6,7 +6,9 @@ html{
 	 height: 100%
 }
 body,h1,h2,h3,h4,h5,ul{
-	margin: 0; padding: 0; height: 100%;
+	margin: 0; 
+	padding:0; 
+	height: 100%;
 }
 ol, ul {
 	list-style: none;  
@@ -15,7 +17,17 @@ ol, ul {
 input,textarea,button:focus {
     outline: none;
 }
+section{
+	padding-top: 200px;
+}
+
 /*login header*/
+header nav{
+	background-color: #ffffff;
+	border-bottom: 1px solid;
+	border-color: rgb(238,238,238);
+	width: 100%;
+}
 #login_header {
 	padding: 0;
 	margin: 0 calc((100% - 1200px) / 2);
@@ -36,6 +48,7 @@ header{
 	border-bottom: 1px solid;
 	border-color: rgb(238,238,238);
 	width: 100%;
+	position: fixed;
 }
 header div{
 	display: flow-root;
@@ -56,6 +69,76 @@ header div{
 #logo_img{
 	width: 300px;
 	margin: 0 50px 10px 0;
+}
+/*menu*/
+aside{
+	position: fixed;
+	width: 400px;
+	height: 100vh;
+	background-color: #ffffff;
+	right: -400px;
+	z-index: 100;
+	opacity: 0;
+}
+.close{
+	cursor: pointer;
+  	font-size: 3em;
+  	margin-top: -5px;
+  	margin-right: 10px;
+  	float: right;
+}
+#overlay_t {
+	background-color: #000;
+	bottom: 0;
+	left: 0;
+	opacity: 0.7;
+	filter: alpha(opacity = 50); 
+	position: fixed;
+	right: 0;
+	top: 0;
+	z-index: 99;
+	display: none;
+}
+/*menu content*/
+#hello{
+	height: 250px;
+	border-bottom: 1px solid;
+	border-color: rgb(238,238,238);
+	padding: 20px;
+	opacity: 0; 
+}
+#profile{
+	border-radius: 50px;
+	width: 130px;
+	height: 130px;
+	margin: 80px 0 0 20px;
+	float: left;
+}
+#profile_img{
+	border: 0px;
+    border-radius: 130px;
+	width: 130px;
+	height: 130px;
+}
+#hi{
+	float: left;
+}
+#hi h3{
+	margin: 110px 0 0 70px;
+}
+#hi h1{
+	margin: 20px 0 0 47px;
+}
+#menu_category a{
+	color: black;
+	text-decoration:none;
+}
+#menu_category h1,li{
+	margin: 20px 0 28px 45px;
+}
+#menu_category li a:hover{
+	background-color: black;
+	color: white;
 }
 /*search*/
 #search{
