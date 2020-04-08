@@ -1,14 +1,16 @@
 <!DOCTYPE html>
-<html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <head>
 	<meta charset="UTF-8">
 	<title>GIVE ME !</title>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<script type="text/javascript" src = "/js/home.js" ></script>
+	<script type="text/javascript" src = "/js/common.js" ></script>
 	<link rel="stylesheet" href="/css/common.css">
 	<link rel="stylesheet" href="/css/home.css">
 </head>
 <body>
+<!-- 	 <th:block th:replace="/fragments/header :: headerFragment"></th:block> -->
 	<header>
 		<nav>
 			<div id ="login_header">
@@ -56,7 +58,7 @@
 		</div>
 		<div id="menu_category">
 		<h1>카테고리</h1>
-			<ul>
+			<ul id ="categoty_name">
 				<li><a href="#">남성의류/잡화</a></li>
 				<li><a href="#">여성의류/잡화</a></li>
 				<li><a href="#">유아동/출산</a></li>
@@ -80,7 +82,7 @@
 		<article>
 	    	<h1 class="home_title">새로 등록된 상품</h1>
 	    	<div>
-	  			<div class="item_div">
+	  			<div class="item_div" onclick="location.href='/itemDeatails';">
 	  				<img style="width: 100%; height: 240px;" src="/img/sample_img1.jpg">
 	  				<div>
 	  					<h4>안쓰는 기타 나눔합니다.</h4>

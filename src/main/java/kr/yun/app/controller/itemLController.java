@@ -7,14 +7,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 import kr.yun.app.service.HomeService;
 
 @Controller
-public class homeController {
+public class itemLController {
 	
 	@Autowired HomeService hs;
 	
-	@GetMapping("/")
-	public String home() {
-		if(hs.test() == 1) System.out.println("DB 연결완료");
-		return "home";
+	@GetMapping("/itemList")
+	public String itemList() {
+		return "itemList";
 	}
 
 	

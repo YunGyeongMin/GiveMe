@@ -5,6 +5,11 @@ html{
 	font-size: 16px;
 	 height: 100%
 }
+article div:after{
+	content: '';
+	display: block;
+	clear: both;
+}
 body,h1,h2,h3,h4,h5,ul{
 	margin: 0; 
 	padding:0; 
@@ -27,6 +32,7 @@ header nav{
 	border-bottom: 1px solid;
 	border-color: rgb(238,238,238);
 	width: 100%;
+	z-index: 2;
 }
 #login_header {
 	padding: 0;
@@ -38,7 +44,7 @@ header nav{
 	clear: both;
 }
 #login_header ul li{
-	width: 80px;
+	width: 70px;
 	float: right;
 	margin: 10px 0;
 }
@@ -49,6 +55,7 @@ header{
 	border-color: rgb(238,238,238);
 	width: 100%;
 	position: fixed;
+	z-index: 2;
 }
 header div{
 	display: flow-root;
@@ -133,12 +140,23 @@ aside{
 	color: black;
 	text-decoration:none;
 }
-#menu_category h1,li{
-	margin: 20px 0 28px 45px;
+#menu_category h1{
+	opacity: 0; 
 }
-#menu_category li a:hover{
-	background-color: black;
+#menu_category li{
+	opacity: 0;
+}
+
+#menu_category h1,li{
+	margin: 24px;
+    padding-left: 21px;
+}
+#menu_category li:hover{
+	background-color: #353535;
 	color: white;
+}
+#menu_category li:hover a{
+	color: inherit;
 }
 /*search*/
 #search{
