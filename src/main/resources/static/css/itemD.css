@@ -11,6 +11,10 @@
 	padding: 40px 0;
 	margin:0 auto; 
 }
+.item_div2{
+	padding: 40px 0 20px 0;
+	margin:0 auto; 
+}
 .item_line{
 	width: 800px;
 	margin:0 auto; 
@@ -22,6 +26,9 @@
 .item_div span{
 	font-size: 30px;
 }
+.item_div2 span{
+	font-size: 30px;
+}
 .item_like{
 	color: #ff8080;
 }
@@ -29,7 +36,7 @@
 	border-radius: 60px;
 	width: 60px;
 	height: 60px;
-	margin-left: 320px;
+	margin-left: 308px;
 	float: left;
 }
 #item_profile img{
@@ -38,7 +45,7 @@
 	border-radius: 60px;
 }
 .item_nickname{
-	margin-right: 300px;
+	margin-right: 280px;
     position: relative;
     top: 16px;
     font-size: 20px;
@@ -47,7 +54,7 @@
 }
 .item_trust{
 	font-size: 30px;
-	color: #aaaaff;
+	color: #4e64cf;
 }
 .item_padding{
 	padding: 10px 0;
@@ -55,12 +62,89 @@
 .item_1{
 	font-size: 20px;
 	color: #a8a8a8;
-	margin-right: 80px
+	margin-right: 40px
 }
 .item_2{
 	font-size: 20px;
-	color: #8fd0ef;
+	color: #4e64cf;
 }
 .item_last{
 	padding: 10px 0 20px 0;
+}
+#comment_profile{
+	width: 60px;
+	height: 60px;
+	border-radius: 60px;
+	float: left
+}
+#comment_profile img{
+	width: 60px;
+	height: 60px;
+	border-radius: 60px;
+}
+.comment_nickname_div{
+	float: left;
+	width: 200px;
+	z-index: 0;
+	font-size: 20px;
+    letter-spacing: 4px;
+    position: relative;
+    top:30px;
+}
+#comment{
+	padding: 10px;
+    border: 0;
+    float: left;
+    border-bottom: 1px solid;
+    position: relative;
+    z-index: 0;
+    top: 20px;
+    width: 50%;
+}
+#comment_btn{
+	width: 8%;
+    background-color: white;
+    border: 1px solid;
+    position: relative;
+    top: 26px;
+    padding: 5px;
+    cursor: pointer;
+}
+.comment_content{
+	font-size: 16px !important;
+	z-index: 0;
+	position: relative;
+	top: 26px;
+	width: 50%;
+	padding-right: 140px;
+	display: inline-block;
+}
+#comment_btn2{
+	width: 8%;
+    background-color: white;
+    border: 1px solid;
+    position: relative;
+    left:311px;
+    bottom:30px;
+    padding: 5px;
+    cursor: pointer;
+}
+/*거래.찜버튼*/
+.like_btn{
+	width: 150px;
+    height: 50px;
+	border:0;
+	background-color: #ff8040;
+	margin: 20px 20px 20px 0;
+	color:white;
+	font-weight: bold;
+}
+.call_btn{
+	width: 150px;
+    height: 50px;
+	border:0;
+	background-color: #0c2c81;
+	margin: 20px 15px 20px 20px;
+	color:white;
+	font-weight: bold;
 }
