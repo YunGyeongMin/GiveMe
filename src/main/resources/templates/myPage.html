@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+	<meta charset="UTF-8">
+	<title>GIVE ME !</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script type="text/javascript" src = "/js/myPage.js" ></script>
+	<script type="text/javascript" src = "/js/common.js" ></script>
+	<link rel="stylesheet" href="/css/common.css">
+	<link rel="stylesheet" href="/css/myPage.css">
+</head>
+<body>
+<!-- 	 <th:block th:replace="/fragments/header :: headerFragment"></th:block> -->
+	<header>
+		<nav>
+			<div id ="login_header">
+				<ul>
+					<li>
+						<a href="#" onclick="location.href='/';">로그아웃</a>
+					</li>
+					<li>
+						<a href="#" onclick="location.href='/myPage';">내정보</a>
+					</li>
+				</ul>
+			</div>	
+		</nav>
+		<div id="logo_header">
+			<div class="logo">
+				<img id="logo_img" src="/img/logo.png" onclick="location.href='/';">
+			</div>
+			<div id="search">
+				<input id="search_bar"type="text" placeholder="상품명을 입력해보세요">
+				<button id="search_btn">
+					<img src="/img/search.png">
+				</button>
+			</div>
+			<div>
+				<button id="login_btn">
+					<img id="login_img" src="/img/kakao-talk.png">
+					<span>카카오 로그인</span>
+				</button> 
+				<button id="category_btn"> 
+					<img id="category_img" src="/img/category.png">
+				</button>
+			</div>
+		</div>			
+	</header>
+	<aside id="menu_accordion">
+		<span class="close">&times;</span>
+		<div id="hello">
+			<div id="profile">
+				<img id="profile_img" src="/img/profile.jpg">
+			</div>
+			<div id="hi">
+				<h3>윤경민님</h3>
+				<h1>안녕하세요!</h1>
+			</div>
+		</div>
+		<div id="menu_category">
+		<h1>카테고리</h1>
+			<ul id ="categoty_name">
+				<li><a href="#" onclick="location.href='/itemList';">남성의류/잡화</a></li>
+				<li><a href="#">여성의류/잡화</a></li>
+				<li><a href="#">유아동/출산</a></li>
+				<li><a href="#">디지털/가전</a></li>
+				<li><a href="#">도서/티켓/음반</a></li>
+				<li><a href="#">게임/취미</a></li>
+				<li><a href="#">애완용품</a></li>
+				<li><a href="#">스포츠/레저</a></li>
+				<li><a href="#">가구</a></li>
+				<li><a href="#">뷰티/미용</a></li>
+				<li><a href="#">식품</a></li>
+				<li><a href="#">기타</a></li>
+			</ul>
+		</div>
+	</aside> 
+	<section>
+		<div id="overlay_t"></div>
+<!-- 		<article id="ad_article"> -->
+<!-- 			<div id="ad">광 고 창</div> -->
+<!-- 		</article> -->
+		<article>
+	   		<h1 class="title">Profile</h1>
+	   		<div class = "myPage_info">
+	   			<div class="myPage_profile">
+	   				<img src="/img/profile.jpg">
+	   			</div>
+	   			<div class="myPage_info2">
+	   				<div class="myPage_info2_title">
+	   					<h2 class="myPage_nickname">이름</h2>
+	   					<h2>신뢰도</h2>
+	   					<h2>주소</h2>
+	   				</div>
+	   				<div class="myPage_info2_content">
+		   				<h3>윤경민</h3>
+		   				<h3 class="myPage_trust">☆100</h3>
+		   				<h3>서울특별시 금천구 가산동 448 대륭테크노타운 3차 308호 7강의실</h3>
+		   			</div>
+	   			</div>
+	   		</div>
+		</article>
+		<article>
+			<h1 class="title">Menu</h1>
+			<div class="container">
+				<ul class="tabs">
+					<li class="tab_link pick" data-tab="tab_1">내 상품</li>
+					<li class="tab_link pick_clear1" data-tab="tab_2">찜</li>
+					<li class="tab_link pick_clear1" data-tab="tab_3">거래내역</li>
+				</ul>
+				<!-- tab1 -->	
+				<div id="tab_1" class="tab-content pick">
+					<div class="myPage_list">
+						<div class="myPage_img_info">
+							<img id="myPage_img" src="/img/sample/sample_img1.jpg">
+						</div>
+						<div class="myPage_item_info">
+							<div class="myPage_item_title">
+								<h3>안쓰는 기타 나눔합니다.</h3>
+							</div>
+							<div>
+								<h4>서울시 노원구</h4>
+							</div>
+							<div>
+								<h5 class="myPage_price">무료나눔</h5>
+							</div>
+							<div>
+								<h5 class="myPage_status">나눔중</h5>
+								<h5 class="myPage_status right">2020-04-10</h5>
+							</div>
+						</div>
+						<div class="checkbox">
+							<input class="check_box" type="checkbox">
+						</div>
+					</div>
+					<div class="myPage_list">
+						<div class="myPage_img_info">
+							<img id="myPage_img" src="/img/sample/sample_img1.jpg">
+						</div>
+						<div class="myPage_item_info">
+							<div class="myPage_item_title">
+								<h3>안쓰는 기타 나눔합니다.</h3>
+							</div>
+							<div>
+								<h4>서울시 노원구</h4>
+							</div>
+							<div>
+								<h5 class="myPage_price">무료나눔</h5>
+							</div>
+							<div>
+								<h5 class="myPage_status">나눔중</h5>
+								<h5 class="myPage_status right">2020-04-10</h5>
+							</div>
+						</div>
+						<div class="checkbox">
+								<input class="check_box" type="checkbox">
+							</div>
+					</div>
+					<div class="myPage_btn">
+						<button>전체삭제</button>
+						<button>선택삭제</button>
+					</div>
+				</div>
+				<!-- tab2 -->	
+				<div id="tab_2" class="tab-content">
+					<div class="myPage_list">
+						<div class="myPage_img_info">
+							<img id="myPage_img" src="/img/sample/sample_img1.jpg">
+						</div>
+						<div class="myPage_item_info">
+							<div class="myPage_item_title">
+								<h3>안쓰는 기타 나눔합니다.</h3>
+							</div>
+							<div>
+								<h4>서울시 노원구</h4>
+							</div>
+							<div>
+								<h5 class="myPage_price">무료나눔</h5>
+							</div>
+							<div>
+								<h5 class="myPage_status">나눔중</h5>
+								<h5 class="myPage_status right">2020-04-10</h5>
+							</div>
+						</div>
+						<div class="checkbox">
+							<input class="check_box" type="checkbox">
+						</div>
+					</div>
+					<div class="myPage_btn">
+						<button>전체삭제</button>
+						<button>선택삭제</button>
+					</div>
+				</div>
+				<!-- tab3 -->	
+				<div id="tab_3" class="tab-content">
+					<div class="myPage_list">
+						<div class="myPage_img_info">
+							<img id="myPage_img" src="/img/sample/sample_img1.jpg">
+						</div>
+						<div class="myPage_item_info">
+							<div class="myPage_item_title">
+								<h3>안쓰는 기타 나눔합니다.</h3>
+							</div>
+							<div>
+								<h4>서울시 노원구</h4>
+							</div>
+							<div>
+								<h5 class="myPage_price">무료나눔</h5>
+							</div>
+							<div>
+								<h5 class="myPage_status">나눔중</h5>
+								<h5 class="myPage_status right">2020-04-10</h5>
+							</div>
+						</div>
+						<div class="checkbox">
+							<input class="check_box" type="checkbox">
+						</div>
+					</div>
+					<div class="myPage_btn">
+						<button id="myPage_trust_btn">신뢰도 평가</button>
+					</div>
+					<div id="popup_div">
+						<span id="close_btn">&times;</span>
+							<div class="star">
+								<span class="star1 on">별1_왼쪽</span>
+								<span class="star2">별1_오른쪽</span>
+								<span class="star1">별2_왼쪽</span>
+								<span class="star2">별2_오른쪽</span>
+								<span class="star1">별3_왼쪽</span>
+								<span class="star2">별3_오른쪽</span>
+								<span class="star1">별4_왼쪽</span>
+								<span class="star2">별4_오른쪽</span>
+								<span class="star1">별5_왼쪽</span>
+								<span class="star2">별5_오른쪽</span>
+							</div>
+						<button>평가하기</button>
+					</div>
+				</div>
+			</div>
+		</article>
+	</section>
+	<footer>
+		<div id= "footer_area">
+			<ul class="footer_itemlist">
+				<li>
+					<a class="about">GIVE ME!</a>
+				</li>
+			</ul>
+			<div class="footer_copyright">
+				<h5>© GIVE ME! All Rights Reserved.</h5>
+			</div>
+			<div class="footer_copyright">
+			사업자 등록번호 : 000-00-00000  |  서울특별시 금천구 가산동 448 대륭테크노타운 3차 308호 7강의실  |  고객문의 : baba1399@gmail.com
+			</div>
+			<div class="footer_copyright">
+			GIVE ME! 대표 윤경민
+			</div>
+		</div>	
+	</footer>
+</body>
+</html>
