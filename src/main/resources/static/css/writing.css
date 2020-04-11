@@ -1,0 +1,134 @@
+@charset "UTF-8";
+.title{
+	border-bottom: 1px solid;
+	border-color: rgb(238,238,238);
+	padding: 20px 0;
+}
+article{
+	display: flow-root;
+}
+/*상품사진등록*/
+.product{
+	width: 400px;
+	margin:30px; 
+	border: 1px solid;
+	border-color: #d7d7d7;
+	float: left;
+}
+#product_img{
+	width: 400px;
+	height: 400px;
+}
+.product_img_btn{
+	margin: 10px calc((400px - 285px ) / 2);
+}
+.product button{
+	background-color: white;
+	border: 1px solid;
+	border-color: #bbb1ac;
+	padding: 5px 10px;
+	cursor: pointer;
+	width: 140px;
+}
+
+/*상품정보등록*/
+.product_info{
+	float: left;
+	border-bottom: 1px solid;
+	border-color: #d7d7d7;
+	width: 670px;
+	margin: 30px;
+}
+.product_info ul{
+	float:left;
+	border: 1px solid;
+	border-bottom: 0;
+	border-color: #d7d7d7;
+}
+.product_info ul li{
+	float: left;
+	margin: 0 ;
+	padding: 0 ;
+}
+.product_info_title{
+	width: 20%;
+	text-align: center;
+	padding: 30px 0 !important;
+}
+.product_info_content{
+	width: 70%;
+	text-align: center;
+	border-left: 1px solid;
+	border-color: #d7d7d7;
+	padding: 33px !important;
+}
+.title_1{
+	margin-top: 8px;
+}
+.title_2{
+	padding-top: 25px;
+}
+.title_input{
+	padding: 5px;
+	width: 400px;
+}
+.select_input{
+	padding: 5px;
+	width: 415px;
+}
+.free_check{
+	margin: 15px calc((100% - 131px) /2) 0;
+}
+.free_check h3{
+	color: #ff8040;
+}
+.yn_check, .yn_h3{
+	float: left;
+	margin: 0 10px;
+}
+.yn_check{
+	position: relative;
+	top: 1px;
+	width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+.yn_margin{
+	margin: 0px calc((100% - 192px) / 2);
+}
+.blue{
+	color: #b5b5ff;
+}
+.red{
+	color: #ff7b7b;
+}
+.textarea{
+	width: 380px;
+	height: 500px;
+	resize: none;
+	line-height: 25px;
+	font-size: 20px;
+	padding: 20px;
+}
+/*상품등록버튼*/
+.register{
+	float: left;
+	margin: 0 30px 30px 30px;
+	position: absolute;
+    bottom: 203px;
+    left: 257px;
+}
+.register_btn{
+	padding: 20px 73px;
+	border: 0;
+	background-color: #ff5151;
+	color: white;
+	cursor: pointer;
+}
+.cancle_btn{
+	padding: 20px 73px;
+	border: 0;
+	background-color: #464646;
+	color: white;
+	cursor: pointer;
+}

@@ -4,10 +4,10 @@
 	<meta charset="UTF-8">
 	<title>GIVE ME !</title>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-	<script type="text/javascript" src = "/js/home.js" ></script>
+	<script type="text/javascript" src = "/js/writing.js" ></script>
 	<script type="text/javascript" src = "/js/common.js" ></script>
 	<link rel="stylesheet" href="/css/common.css">
-	<link rel="stylesheet" href="/css/home.css">
+	<link rel="stylesheet" href="/css/writing.css">
 </head>
 <body>
 <!-- 	 <th:block th:replace="/fragments/header :: headerFragment"></th:block> -->
@@ -79,74 +79,73 @@
 	</aside> 
 	<section>
 		<div id="overlay_t"></div>
-		<article id="ad_article">
-			<div id="ad">광 고 창</div>
-		</article>
+<!-- 		<article id="ad_article"> -->
+<!-- 			<div id="ad">광 고 창</div> -->
+<!-- 		</article> -->
 		<article>
-	    	<h1 class="home_title">새로 등록된 상품</h1>
-	    	<div>
-	  			<div class="item_div" onclick="location.href='/itemDeatails';">
-	  				<img style="width: 100%; height: 240px;" src="/img/sample/sample_img1.jpg">
-	  				<div>
-	  					<h4>안쓰는 기타 나눔합니다.</h4>
-	  					<h5>무료나눔</h5>
-	  				</div>
-	  			</div>
-	  			<div class="item_div">
-	  				<img style="width: 100%;" src="/img/sample/sample_img2.jpg">
-	  				<div>
-	  					<h4>에어프라이기 나눔해요^^</h4>
-	  					<h5>무료나눔</h5>
-	  				</div>
-	  			</div>
-	  			<div class="item_div">
-	  				<img style="width: 100%;" src="/img/sample/sample_img3.jpg">
-	  				<div>
-	  					<h4>좋은 책 하나 가져가세요!</h4>
-	  					<h5>무료나눔</h5>
-	  				</div>
-	  			</div>
-	  			<div class="item_div">
-	  				<img style="width: 100%;" src="/img/sample/sample_img4.jpg">
-	  				<div>
-	  					<h4>애기들 책 가져가실분 선착순!</h4>
-	  					<h5>무료나눔</h5>
-	  				</div>
-	  			</div>
-	    	</div>
-		</article>
-		<article>
-	    	<h1 class="home_title">동네상품</h1>
-	    	<div>
-	  			<div class="item_div">
-	  				<img src="/img/sample/sample_img1.jpg">
-	  				<div>
-	  					<h4>안쓰는 기타 나눔합니다.</h4>
-	  					<h5>무료나눔</h5>
-	  				</div>
-	  			</div>
-	  			<div class="item_div">
-	  				<img src="/img/sample/sample_img2.jpg">
-	  				<div>
-	  					<h4>에어프라이기 나눔해요^^</h4>
-	  					<h5>무료나눔</h5>
-	  				</div>
-	  			</div>
-	  			<div class="item_div">
-	  				<img src="/img/sample/sample_img3.jpg">
-	  				<div>
-	  					<h4>좋은 책 하나 가져가세요!</h4>
-	  					<h5>무료나눔</h5>
-	  				</div>
-	  			</div>
-	  			<div class="item_div">
-	  				<img src="/img/sample/sample_img4.jpg">
-	  				<div>
-	  					<h4>애기들 책 가져가실분 선착순!</h4>
-	  					<h5>무료나눔</h5>
-	  				</div>
-	  			</div>
-	    	</div>
+	   		<h1 class="title">상품등록</h1>
+	   		<div class="product">
+	   			<img id="product_img" src="/img/upload-icon.png">
+		   		<div class="product_img_btn">	
+		   			<button>썸네일 이미지 등록</button>
+		   			<button>서브 이미지 등록</button>
+		   		</div>	
+	   		</div>
+	   		<div class="product_info">
+	   			<ul>
+	   				<li class="product_info_title"><h3 class="title_1">제목</h3></li>
+	   				<li class="product_info_content"><input class="title_input" type="text" placeholder="ex : 조금 오래된 자전거 나눔해봅니다. 필요하신 분 연락주세요!"></li>
+	   			</ul>
+	   			<ul>
+	   				<li class="product_info_title"><h3 class="title_1">카테고리</h3></li>
+	   				<li class="product_info_content">
+	   					<select class="select_input">
+	   						<option value="default" selected="selected">카테고리 선택</option>
+						    <option value="">남성의류/잡화</option>
+						    <option value="">여성의류/잡화</option>
+						    <option value="">유아동/출산</option>
+						    <option value="">디지털/가전</option>
+						    <option value="">도서/티켓/음반</option>
+						    <option value="">게임/취미</option>
+						    <option value="">애완용품</option>
+						    <option value="">스포츠/레저</option>
+						    <option value="">가구</option>
+						    <option value="">뷰티/미용</option>
+						    <option value="">식품</option>
+						    <option value="">기타</option>
+			   			</select>
+	   				</li>
+	   			</ul>
+	   			<ul>
+	   				<li class="product_info_title"><h3 class="title_2">가격</h3></li>
+	   				<li class="product_info_content">
+	   					<input class="title_input" type="text" placeholder="숫자만 입력해주세요!">
+	   					<div class="free_check">
+		   					<h3 class="yn_h3">무료나눔</h3>
+			   				<input class="yn_check" type="checkbox">
+		   				</div>
+	   				</li>
+	   			</ul>
+	   			<ul>
+	   				<li class="product_info_title"><h3>금액제시</h3></li>
+	   				<li class="product_info_content">
+	   					<div class="yn_margin">
+		   					<h3 class="yn_h3 blue">가능</h3>
+		   					<input class="yn_check" type="checkbox">
+		   					<h3 class="yn_h3 red">불가</h3>
+		   					<input class="yn_check" type="checkbox">
+	   					</div>
+	   				</li>
+	   			</ul>
+	   			<ul>
+	   				<li class="product_info_title"><h3>상세설명</h3></li>
+	   				<li class="product_info_content"><textarea class="textarea" placeholder="상품 소개 내용을 입력하세요!"></textarea></li>
+	   			</ul>
+	   		</div>
+	   		<div class="register">
+	   			<button class="register_btn">등록하기</button>
+	   			<button class="cancle_btn">취소하기</button>
+	   		</div>
 		</article>
 	</section>
 	<footer>

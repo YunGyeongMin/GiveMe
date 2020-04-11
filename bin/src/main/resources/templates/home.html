@@ -8,7 +8,6 @@
 	<script type="text/javascript" src = "/js/common.js" ></script>
 	<link rel="stylesheet" href="/css/common.css">
 	<link rel="stylesheet" href="/css/home.css">
-	<link rel="stylesheet" href="/css/itemL.css">
 </head>
 <body>
 <!-- 	 <th:block th:replace="/fragments/header :: headerFragment"></th:block> -->
@@ -22,9 +21,6 @@
 					<li>
 						<a href="#" onclick="location.href='/myPage';">내정보</a>
 					</li>
-					<li>
-						<a href="#" onclick="location.href='/writing';">상품등록</a>
-					</li>
 				</ul>
 			</div>	
 		</nav>
@@ -33,7 +29,7 @@
 				<img id="logo_img" src="/img/logo.png" onclick="location.href='/';">
 			</div>
 			<div id="search">
-				<input id="search_bar" type="text" placeholder="상품명을 입력해보세요">
+				<input id="search_bar"type="text" placeholder="상품명을 입력해보세요">
 				<button id="search_btn">
 					<img src="/img/search.png">
 				</button>
@@ -84,88 +80,70 @@
 			<div id="ad">광 고 창</div>
 		</article>
 		<article>
-	    	<h1 class="home_title">남성의류/잡화</h1>
+	    	<h1 class="home_title">새로 등록된 상품</h1>
 	    	<div>
 	  			<div class="item_div" onclick="location.href='/itemDeatails';">
-	  				<img style="width: 100%; height: 240px;" src="/img/sample/sample_img5.jpg">
+	  				<img style="width: 100%; height: 240px;" src="/img/sample/sample_img1.jpg">
 	  				<div>
-	  					<h4>안입는 옷 나눔해요~^^</h4>
+	  					<h4>안쓰는 기타 나눔합니다.</h4>
 	  					<h5>무료나눔</h5>
 	  				</div>
 	  			</div>
 	  			<div class="item_div">
-	  				<img style="width: 100%;" src="/img/sample/sample_img6.jpg">
+	  				<img style="width: 100%;" src="/img/sample/sample_img2.jpg">
 	  				<div>
-	  					<h4>옷 3벌 가져가실분</h4>
+	  					<h4>에어프라이기 나눔해요^^</h4>
 	  					<h5>무료나눔</h5>
 	  				</div>
 	  			</div>
 	  			<div class="item_div">
-	  				<img style="width: 100%;" src="/img/sample/sample_img7.jpg">
+	  				<img style="width: 100%;" src="/img/sample/sample_img3.jpg">
 	  				<div>
-	  					<h4>사이즈 안맞아서 나눔해요</h4>
+	  					<h4>좋은 책 하나 가져가세요!</h4>
 	  					<h5>무료나눔</h5>
 	  				</div>
 	  			</div>
 	  			<div class="item_div">
-	  				<img style="width: 100%;" src="/img/sample/sample_img8.jpg">
+	  				<img style="width: 100%;" src="/img/sample/sample_img4.jpg">
 	  				<div>
-	  					<h4>바지 하나 나눔해봅니다~</h4>
+	  					<h4>애기들 책 가져가실분 선착순!</h4>
 	  					<h5>무료나눔</h5>
 	  				</div>
 	  			</div>
 	    	</div>
 		</article>
 		<article>
-	    	<h1 class="home_title"></h1>
+	    	<h1 class="home_title">동네상품</h1>
 	    	<div>
 	  			<div class="item_div">
-	  				<img src="/img/sample/sample_img6.jpg">
+	  				<img src="/img/sample/sample_img1.jpg">
 	  				<div>
-	  					<h4>옷 3벌 가져가실분</h4>
+	  					<h4>안쓰는 기타 나눔합니다.</h4>
 	  					<h5>무료나눔</h5>
 	  				</div>
 	  			</div>
 	  			<div class="item_div">
-	  				<img src="/img/sample/sample_img5.jpg">
+	  				<img src="/img/sample/sample_img2.jpg">
 	  				<div>
-	  					<h4>안입는 옷 나눔해요~^^</h4>
+	  					<h4>에어프라이기 나눔해요^^</h4>
 	  					<h5>무료나눔</h5>
 	  				</div>
 	  			</div>
 	  			<div class="item_div">
-	  				<img src="/img/sample/sample_img8.jpg">
+	  				<img src="/img/sample/sample_img3.jpg">
 	  				<div>
-	  					<h4>바지 하나 나눔해봅니다~</h4>
+	  					<h4>좋은 책 하나 가져가세요!</h4>
 	  					<h5>무료나눔</h5>
 	  				</div>
 	  			</div>
 	  			<div class="item_div">
-	  				<img src="/img/sample/sample_img7.jpg">
+	  				<img src="/img/sample/sample_img4.jpg">
 	  				<div>
-	  					<h4>사이즈 안맞아서 나눔해요</h4>
+	  					<h4>애기들 책 가져가실분 선착순!</h4>
 	  					<h5>무료나눔</h5>
 	  				</div>
 	  			</div>
 	    	</div>
-		</article>
-		<article class="page_wrap">
-			<div class="page_nation">
-				<a class="arrow pprev" href="#"></a>
-			    <a class="arrow prev" href="#"></a>
-			    <a href="#" class="active">1</a>
-			    <a href="#">2</a>
-			    <a href="#">3</a>
-			    <a href="#">4</a>
-			    <a href="#">5</a>
-			    <a href="#">6</a>
-			    <a href="#">7</a>
-			    <a href="#">8</a>
-			    <a href="#">9</a>
-			    <a href="#">10</a>
-			    <a class="arrow next" href="#"></a>
-			    <a class="arrow nnext" href="#"></a>
-			</div>
 		</article>
 	</section>
 	<footer>

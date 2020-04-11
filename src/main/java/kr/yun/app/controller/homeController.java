@@ -13,7 +13,7 @@ public class homeController {
 	
 	@GetMapping("/")
 	public String home() {
-		if(hs.test() == 1) System.out.println("DB 연결완료");
+//		if(hs.test() == 1) System.out.println("DB 연결완료");
 		return "home";
 	}
 
