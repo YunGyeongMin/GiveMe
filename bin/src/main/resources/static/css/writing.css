@@ -7,10 +7,6 @@
 article{
 	display: flow-root;
 }
-.register_area{
-	width: 465px;
-    float: left;
-}
 /*상품사진등록*/
 .product{
 	width: 400px;
@@ -118,9 +114,9 @@ article{
 .register{
 	float: left;
 	margin: 0 30px 30px 30px;
-/* 	position: absolute; */
-/*     bottom: 203px; */
-/*     left: 257px; */ 
+	position: absolute;
+    bottom: 203px;
+    left: 257px;
 }
 .register_btn{
 	padding: 20px 73px;

@@ -205,11 +205,16 @@
 #popup_div{
 	top:0px;
 	position: absolute;
-	width: 500px;
-	height: 200px;
+	width: 400px;
+	height: 250px;
 	display: none;
 	z-index: 99;
 	background-color: white;
+}
+#popup_div h2{
+	height: auto;
+    margin: 30px 30px 0 30px;
+    text-align: center;
 }
 #close_btn{
 	cursor: pointer;
@@ -217,6 +222,9 @@
   	margin-top: -5px;
   	margin-right: 10px;
   	float: right;
+}
+.star{
+	padding: 20px calc((100% - 150px) / 2);
 }
 /*별점*/
 .star1{
@@ -239,3 +247,12 @@
 }
 .star1.on{background-position:0 0;}
 .star2.on{background-position:-15px 0;}
+#star_btn{
+	padding: 10px 30px;
+    border: 0;
+    background-color: #505ea0;
+    margin-left: calc((100% - 113.8px) / 2);
+    margin-top: 5px;
+    color: white;
+    cursor: pointer;
+}

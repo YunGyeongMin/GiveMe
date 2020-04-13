@@ -13,7 +13,7 @@
 <!-- 	 <th:block th:replace="/fragments/header :: headerFragment"></th:block> -->
 	<header>
 		<nav>
-			<div id ="login_header">
+			<div id ="login_header"> 
 				<ul>
 					<li>
 						<a href="#" onclick="location.href='/';">로그아웃</a>
@@ -25,7 +25,7 @@
 						<a href="#" onclick="location.href='/writing';">상품등록</a>
 					</li>
 				</ul>
-			</div>	
+			</div>
 		</nav>
 		<div id="logo_header">
 			<div class="logo">
@@ -84,13 +84,19 @@
 <!-- 		</article> -->
 		<article>
 	   		<h1 class="title">상품등록</h1>
-	   		<div class="product">
-	   			<img id="product_img" src="/img/upload-icon.png">
-		   		<div class="product_img_btn">	
-		   			<button>썸네일 이미지 등록</button>
-		   			<button>서브 이미지 등록</button>
-		   		</div>	
-	   		</div>
+	   		<div class="register_area">
+		   		<div class="product">
+		   			<img id="product_img" src="/img/upload-icon.png">
+			   		<div class="product_img_btn">	
+			   			<button>썸네일 이미지 등록</button>
+			   			<button>서브 이미지 등록</button>
+			   		</div>	
+		   		</div>
+		   		<div class="register">
+		   			<button class="register_btn">등록하기</button>
+		   			<button class="cancle_btn">취소하기</button>
+		   		</div>
+		   	</div>	
 	   		<div class="product_info">
 	   			<ul>
 	   				<li class="product_info_title"><h3 class="title_1">제목</h3></li>
@@ -141,10 +147,6 @@
 	   				<li class="product_info_title"><h3>상세설명</h3></li>
 	   				<li class="product_info_content"><textarea class="textarea" placeholder="상품 소개 내용을 입력하세요!"></textarea></li>
 	   			</ul>
-	   		</div>
-	   		<div class="register">
-	   			<button class="register_btn">등록하기</button>
-	   			<button class="cancle_btn">취소하기</button>
 	   		</div>
 		</article>
 	</section>
