@@ -13,10 +13,10 @@
 <!-- 	 <th:block th:replace="/fragments/header :: headerFragment"></th:block> -->
 	<header>
 		<nav>
-			<div id ="login_header"> 
+			<div id ="login_header">
 				<ul>
 					<li>
-						<a href="#" onclick="location.href='/';">로그아웃</a>
+						<a href="/logout" >로그아웃</a>
 					</li>
 					<li>
 						<a href="#" onclick="location.href='/myPage';">내정보</a>
@@ -25,7 +25,7 @@
 						<a href="#" onclick="location.href='/writing';">상품등록</a>
 					</li>
 				</ul>
-			</div>
+			</div>	
 		</nav>
 		<div id="logo_header">
 			<div class="logo">
@@ -38,10 +38,12 @@
 				</button>
 			</div>
 			<div>
-				<button id="login_btn">
-					<img id="login_img" src="/img/kakao-talk.png">
-					<span>카카오 로그인</span>
-				</button> 
+				<a href="/login">
+					<button id="login_btn">						
+							<img id="login_img" src="/img/kakao-talk.png">
+							<span>카카오 로그인</span>
+					</button> 
+				</a>
 				<button id="category_btn"> 
 					<img id="category_img" src="/img/category.png">
 				</button>

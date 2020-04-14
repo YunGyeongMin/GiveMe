@@ -6,6 +6,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.net.URLEncoder;
 import java.util.HashMap;
 
 import javax.servlet.http.HttpSession;
@@ -187,7 +188,7 @@ public class kakaoService {
 			return logout_status;
 		}
 		
-		
+		//회원탈퇴
 		public boolean setKakaoRemove (HttpSession session){
 			
 //			HashMap<String, Object> userInfo = new HashMap<>();
@@ -239,7 +240,39 @@ public class kakaoService {
 			return user_remove;
 		}
 		
+		//로그인 확인여부
+		public String loginConfirm(HttpSession session) throws Exception{
+			String url2 = "/";
+			if(session.getAttribute("userId") == null) {
+				String url = sn.kakao_auth;
+				url += "?client_id=" + sn.kakao_client_id;
+				url += "&redirect_uri=" + sn.kakao_redirect_uri2;
+				url += "&response_type=code";
+				System.out.println(url);
+				url2 = sn.kakao_login + "?continue=" + URLEncoder.encode(url, "utf-8");
+				System.out.println(url2);
+			}
+			return url2;
+		}
 		
+		//토큰확인 후 로그인
+		public void loginRun(String code,  HttpSession session) {
+			System.out.println("code : " + code);
+			String access_Token = getAccessToken(code);
+			System.out.println("controller access_token : " + access_Token);
+			HashMap<String, Object> userInfo = getUserInfo(access_Token);
+			System.out.println("login Controller : " + userInfo);
+			
+			//이메일 존재시 세션에 이메일과 토큰등록
+			if(userInfo.get("id") != null) {
+				session.setAttribute("userId", userInfo.get("id"));
+				if(userInfo.get("email") != null) {
+					session.setAttribute("userEmail", userInfo.get("email"));
+				}
+				session.setAttribute("access_Token", access_Token);
+				System.out.println("로그인 성공!");
+			}		
+		}
 		
 		
 }

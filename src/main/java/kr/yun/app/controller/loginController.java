@@ -24,38 +24,16 @@ public class loginController {
 	@Autowired kakaoService ks;
 	@Autowired KakaoAPI sn;
 	
+	//로그인여부 확인
 	@GetMapping("/login")
 	public RedirectView login(HttpSession session) throws Exception{
-		String url2 = "/";
-		if(session.getAttribute("userId") == null) {
-			String url = sn.kakao_auth;
-			url += "?client_id=" + sn.kakao_client_id;
-			url += "&redirect_uri=" + sn.kakao_redirect_uri2;
-			url += "&response_type=code";
-			System.out.println(url);
-			url2 = sn.kakao_login + "?continue=" + URLEncoder.encode(url, "utf-8");
-			System.out.println(url2);
-		}
-		return new RedirectView(url2);
+		return new RedirectView(ks.loginConfirm(session));
 	}
 	
+	//로그인
 	@RequestMapping(value = "/kakaoLogin" , method = RequestMethod.GET) 
 	public RedirectView kakaoLogin(@RequestParam("code") String code, HttpSession session) throws IOException {
-		System.out.println("code : " + code);
-		String access_Token = ks.getAccessToken(code);
-		System.out.println("controller access_token : " + access_Token);
-		HashMap<String, Object> userInfo = ks.getUserInfo(access_Token);
-		System.out.println("login Controller : " + userInfo);
-		
-		//이메일 존재시 세션에 이메일과 토큰등록
-		if(userInfo.get("id") != null) {
-			session.setAttribute("userId", userInfo.get("id"));
-			if(userInfo.get("email") != null) {
-				session.setAttribute("userEmail", userInfo.get("email"));
-			}
-			session.setAttribute("access_Token", access_Token);
-			System.out.println("로그인 성공!");
-		}
+		ks.loginRun(code, session);
 		return new RedirectView("/");
 	}
 	
@@ -64,7 +42,7 @@ public class loginController {
 	public RedirectView logout(HttpSession session) {
 		if(ks.setKakaoLogout(session)) {
 			session.invalidate();
-			System.out.println("로그아웃성공");
+			System.out.println("로그아웃 성공");
 		}		
 		return new RedirectView("/");
 	}
@@ -74,6 +52,7 @@ public class loginController {
 	public RedirectView remove(HttpSession session) {
 		if(ks.setKakaoRemove(session)) {
 			session.invalidate();
+			System.out.println("회원탈퇴 성공");
 		}
 		return new RedirectView("/");
 	}
