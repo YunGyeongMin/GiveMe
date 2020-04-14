@@ -203,6 +203,9 @@ aside{
 	color: #4a250d;
 	font-weight: bold;
 }
+.login_a{
+	text-decoration: none;
+}
 #login_btn:hover{
 	background-color: #974b00;
 	color: white;

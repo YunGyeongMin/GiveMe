@@ -50,5 +50,27 @@ $(document).ready(function(){
 		return false;
 	})
 	
+	/*회원탈퇴 팝업창*/
+	$(".user_remove").click(function(){
+		$("#overlay_t").show();
+		$("#popup_div2").css("display","block");
+		$("body").css("overflow","hidden");
+		$("#popup_div2").css({
+			"top":(($(window).height() - $("#popup_div").outerHeight()) / 2 + $(window).scrollTop()) +"px",
+			"left": (($(window).width()-$("#popup_div").outerWidth())/2+$(window).scrollLeft())+"px"
+		});
+	});
+	
+	$("#close_btn2").click(function(){
+		$("#overlay_t").hide();
+		$("#popup_div2").css("display","none");
+		$("body").css("overflow","auto");
+	})
+	
+	$("#remove_btn").click(function(){
+		alert("회원탈퇴가 완료 되었습니다.");
+	})
+	
+	
 	
 });

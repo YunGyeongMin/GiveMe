@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<html xmlns:th="http://www.thymeleaf.org" lang="ko">
 <head>
 	<meta charset="UTF-8">
 	<title>GIVE ME !</title>
@@ -10,23 +10,25 @@
 	<link rel="stylesheet" href="/css/home.css">
 </head>
 <body>
+	<th:blck h2/>
 <!-- 	 <th:block th:replace="/fragments/header :: headerFragment"></th:block> -->
 	<header>
-		<nav>
-			<div id ="login_header">
-				<ul>
-					<li>
-						<a href="/logout" >로그아웃</a>
-					</li>
-					<li>
-						<a href="#" onclick="location.href='/myPage';">내정보</a>
-					</li>
-					<li>
-						<a href="#" onclick="location.href='/writing';">상품등록</a>
-					</li>
-				</ul>
-			</div>	
-		</nav>
+			<nav th:if="${session.userId != null}">
+				<div id ="login_header">
+					<ul>
+						<li>
+							<a href="/logout" >로그아웃</a>
+						</li>
+						<li>
+							<a href="#" onclick="location.href='/myPage';">내정보</a>
+						</li>
+						<li>
+							<a href="#" onclick="location.href='/writing';">상품등록</a>
+						</li>
+					</ul>
+				</div>	
+			</nav>
+		<th:block th:if="${session.userId !=null}">
 		<div id="logo_header">
 			<div class="logo">
 				<img id="logo_img" src="/img/logo.png" onclick="location.href='/';">
@@ -38,7 +40,7 @@
 				</button>
 			</div>
 			<div>
-				<a href="/login">
+				<a href="/login" class="login_a">
 					<button id="login_btn">						
 							<img id="login_img" src="/img/kakao-talk.png">
 							<span>카카오 로그인</span>

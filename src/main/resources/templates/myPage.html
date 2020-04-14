@@ -16,6 +16,9 @@
 			<div id ="login_header">
 				<ul>
 					<li>
+						<a class="user_remove">회원탈퇴</a>
+					</li>
+					<li>
 						<a href="/logout" >로그아웃</a>
 					</li>
 					<li>
@@ -25,7 +28,7 @@
 						<a href="#" onclick="location.href='/writing';">상품등록</a>
 					</li>
 				</ul>
-			</div>	
+			</div>
 		</nav>
 		<div id="logo_header">
 			<div class="logo">
@@ -38,7 +41,7 @@
 				</button>
 			</div>
 			<div>
-				<a href="/login">
+				<a href="/login" class="login_a">
 					<button id="login_btn">						
 							<img id="login_img" src="/img/kakao-talk.png">
 							<span>카카오 로그인</span>
@@ -243,6 +246,14 @@
 					</div>
 				</div>
 			</div>
+			<div id="popup_div2">
+				<span id="close_btn2">&times;</span>
+					<h2>정말로 회원탈퇴 하시겠습니까?</h2>
+					<h2>(회원님의 정보가 사라집니다.)</h2>
+				<a href="/remove" class="login_a">	
+					<button id="remove_btn">탈퇴하기</button>
+				</a>
+			</div>	
 		</article>
 	</section>
 	<footer>

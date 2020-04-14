@@ -263,7 +263,7 @@ public class kakaoService {
 			HashMap<String, Object> userInfo = getUserInfo(access_Token);
 			System.out.println("login Controller : " + userInfo);
 			
-			//이메일 존재시 세션에 이메일과 토큰등록
+			//아이디 존재시 세션에 아이디와 토큰등록
 			if(userInfo.get("id") != null) {
 				session.setAttribute("userId", userInfo.get("id"));
 				if(userInfo.get("email") != null) {

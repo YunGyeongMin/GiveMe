@@ -104,16 +104,16 @@
 			<optional>true</optional>
 		</dependency>
 		
-		<!-- thymeleaf -->
 		<dependency>
-		    <groupId>org.springframework.boot</groupId>
-		    <artifactId>spring-boot-starter-thymeleaf</artifactId>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-thymeleaf</artifactId>
 		</dependency>
-		<dependency>
-		  	<groupId>com.github.zhanhb</groupId>
-		  	<artifactId>thymeleaf-layout-dialect</artifactId>
-		  	<version>2.4.1</version>
-		</dependency>
+		
+		 <!--thymelead-html5 legacy(메이븐)-->
+        <dependency>
+             <groupId>net.sourceforge.nekohtml</groupId>
+             <artifactId>nekohtml</artifactId>
+         </dependency>
 		
 	</dependencies>
 
