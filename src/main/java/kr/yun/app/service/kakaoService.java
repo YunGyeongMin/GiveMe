@@ -18,6 +18,8 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
+import kr.yun.app.Bean.UserBean;
+import kr.yun.app.mapper.UserMapper;
 import kr.yun.app.util.KakaoAPI;
 
 
@@ -25,6 +27,7 @@ import kr.yun.app.util.KakaoAPI;
 public class kakaoService {
 	
 		@Autowired KakaoAPI sn;
+		@Autowired UserMapper um;
 		
 		// access_Token 가져오기
 		public String getAccessToken(String authorize_code) {
@@ -125,10 +128,15 @@ public class kakaoService {
 					userInfo.put("email", email);
 				}
 				
+				if(kakao_account.getAsJsonObject().get("gender") != null) {
+					String gender = kakao_account.getAsJsonObject().get("gender").getAsString();
+					userInfo.put("gender", gender);
+				}
+				
 				userInfo.put("id", id);
-				userInfo.put("nickname", nickname);
-				userInfo.put("thumbnail_image", thumbnail_image);
-				userInfo.put("profile_image", profile_image);
+				userInfo.put("nick_name", nickname);
+				userInfo.put("thumbnail_img", thumbnail_image);
+				userInfo.put("profile_img", profile_image);
 				
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -233,6 +241,9 @@ public class kakaoService {
 					System.out.println("id 확인완료 / 회원탈퇴 합니다.");
 					user_remove = true;
 				}
+				//db 회원탈퇴
+				um.delUser(session_id);
+				
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
@@ -262,15 +273,31 @@ public class kakaoService {
 			System.out.println("controller access_token : " + access_Token);
 			HashMap<String, Object> userInfo = getUserInfo(access_Token);
 			System.out.println("login Controller : " + userInfo);
-			
+			//UserBean 담기
+			UserBean ub = new UserBean();
+			ub.setId(userInfo.get("id").toString());
+			ub.setNick_name(userInfo.get("nick_name").toString());	
+			ub.setProfile_img(userInfo.get("profile_img").toString());
 			//아이디 존재시 세션에 아이디와 토큰등록
 			if(userInfo.get("id") != null) {
 				session.setAttribute("userId", userInfo.get("id"));
+				session.setAttribute("nick_name", userInfo.get("nick_name").toString());
+				session.setAttribute("profile_img", userInfo.get("profile_img").toString());
 				if(userInfo.get("email") != null) {
 					session.setAttribute("userEmail", userInfo.get("email"));
 				}
 				session.setAttribute("access_Token", access_Token);
+				System.out.println("id 세션 등록: " + session.getAttribute("userId"));
 				System.out.println("로그인 성공!");
+				//회원정보 등록
+				if(um.setUserConfirm(session.getAttribute("userId").toString()) == null) {
+					if(userInfo.get("email") == null) {
+						userInfo.put("email", null);						
+					} else if (userInfo.get("gender") == null) {
+						userInfo.put("gender", null);	
+					}
+					um.setUser(userInfo);
+				}
 			}		
 		}
 		

@@ -16,6 +16,16 @@ $(document).ready(function(){
 					});
 				}
 				
+				$("#overlay_t").click(function(){
+					$("#overlay_t").hide();
+					var $target = $("#menu_accordion");
+					$target.animate({right: "-400px",opacity:0},200,function(){
+						$("body").css("overflow","");
+						$("#hello").css("opacity", 0);
+						$("#menu_category h1").css("opacity", 0);
+						$("#menu_category ul li").css("opacity", 0);
+					});
+				})
 			});
 		}
 	});
@@ -30,6 +40,7 @@ $(document).ready(function(){
 		});
 	})
 	
-	//카카오 로그인
+	
+	
 	
 });
