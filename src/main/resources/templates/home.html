@@ -40,7 +40,10 @@
 			</div>
 			<div>
 			{{# userId}}
-				<div></div>
+				<div id="login_div"></div>
+				<button id="category_btn" class="category_btn2"> 
+					<img id="category_img" src="/img/category.png">
+				</button>
 			{{/ userId}}
 			{{^ userId}}
 				<a href="/login" class="login_a">
@@ -49,10 +52,11 @@
 							<span>카카오 로그인</span>
 					</button> 
 				</a>
-			{{/ userId}}
-				<button id="category_btn"> 
+				<button id="category_btn" class="category_btn"> 
 					<img id="category_img" src="/img/category.png">
 				</button>
+				
+			{{/ userId}}	
 			</div>
 		</div>			
 	</header>

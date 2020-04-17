@@ -12,6 +12,7 @@
 <body>
 <!-- 	 <th:block th:replace="/fragments/header :: headerFragment"></th:block> -->
 	<header>
+		{{# userId}}
 		<nav>
 			<div id ="login_header">
 				<ul>
@@ -27,6 +28,7 @@
 				</ul>
 			</div>	
 		</nav>
+		{{/ userId}}
 		<div id="logo_header">
 			<div class="logo">
 				<img id="logo_img" src="/img/logo.png" onclick="location.href='/';">
@@ -38,29 +40,51 @@
 				</button>
 			</div>
 			<div>
+			{{# userId}}
+				<div id="login_div"></div>
+				<button id="category_btn" class="category_btn2"> 
+					<img id="category_img" src="/img/category.png">
+				</button>
+			{{/ userId}}
+			{{^ userId}}
 				<a href="/login" class="login_a">
 					<button id="login_btn">						
 							<img id="login_img" src="/img/kakao-talk.png">
 							<span>카카오 로그인</span>
 					</button> 
 				</a>
-				<button id="category_btn"> 
+				<button id="category_btn" class="category_btn"> 
 					<img id="category_img" src="/img/category.png">
 				</button>
+				
+			{{/ userId}}	
 			</div>
 		</div>			
 	</header>
 	<aside id="menu_accordion">
 		<span class="close">&times;</span>
+		{{# userId}}
 		<div id="hello">
 			<div id="profile">
-				<img id="profile_img" src="/img/profile.jpg">
+				<img id="profile_img" src="{{profile_img}}">
 			</div>
 			<div id="hi">
-				<h3>윤경민님</h3>
+				<h3>{{nick_name}}님</h3>
 				<h1>안녕하세요!</h1>
 			</div>
 		</div>
+		{{/ userId}}
+		{{^ userId}}
+		<div id="hello">
+			<div id="profile">
+				<img id="profile_img" src="/img/default_img.jpg">
+			</div>
+			<div id="hi">
+				<h3>고객님</h3>
+				<h1>안녕하세요!</h1>
+			</div>
+		</div>
+		{{/ userId}}
 		<div id="menu_category">
 		<h1>카테고리</h1>
 			<ul id ="categoty_name">
@@ -78,7 +102,7 @@
 				<li><a href="#">기타</a></li>
 			</ul>
 		</div>
-	</aside> 
+	</aside>
 	<section>
 		<div id="overlay_t"></div>
 <!-- 		<article id="ad_article"> -->
@@ -102,35 +126,35 @@
 	   		<div class="product_info">
 	   			<ul>
 	   				<li class="product_info_title"><h3 class="title_1">제목</h3></li>
-	   				<li class="product_info_content"><input class="title_input" type="text" placeholder="ex : 조금 오래된 자전거 나눔해봅니다. 필요하신 분 연락주세요!"></li>
+	   				<li class="product_info_content"><input id="writing_title" class="title_input" type="text" placeholder="ex : 조금 오래된 자전거 나눔해봅니다. 필요하신 분 연락주세요!"></li>
 	   			</ul>
 	   			<ul>
 	   				<li class="product_info_title"><h3 class="title_1">카테고리</h3></li>
 	   				<li class="product_info_content">
 	   					<select class="select_input">
 	   						<option value="default" selected="selected">카테고리 선택</option>
-						    <option value="">남성의류/잡화</option>
-						    <option value="">여성의류/잡화</option>
-						    <option value="">유아동/출산</option>
-						    <option value="">디지털/가전</option>
-						    <option value="">도서/티켓/음반</option>
-						    <option value="">게임/취미</option>
-						    <option value="">애완용품</option>
-						    <option value="">스포츠/레저</option>
-						    <option value="">가구</option>
-						    <option value="">뷰티/미용</option>
-						    <option value="">식품</option>
-						    <option value="">기타</option>
+						    <option>남성의류/잡화</option>
+						    <option>여성의류/잡화</option>
+						    <option>유아동/출산</option>
+						    <option>디지털/가전</option>
+						    <option>도서/티켓/음반</option>
+						    <option>게임/취미</option>
+						    <option>애완용품</option>
+						    <option>스포츠/레저</option>
+						    <option>가구</option>
+						    <option>뷰티/미용</option>
+						    <option>식품</option>
+						    <option>기타</option>
 			   			</select>
 	   				</li>
 	   			</ul>
 	   			<ul>
 	   				<li class="product_info_title"><h3 class="title_2">가격</h3></li>
 	   				<li class="product_info_content">
-	   					<input class="title_input" type="text" placeholder="숫자만 입력해주세요!">
+	   					<input id="writing_price" class="title_input" type="text">
 	   					<div class="free_check">
 		   					<h3 class="yn_h3">무료나눔</h3>
-			   				<input class="yn_check" type="checkbox">
+			   				<input id="free_checkbox"class="yn_check" type="checkbox">
 		   				</div>
 	   				</li>
 	   			</ul>
@@ -139,15 +163,15 @@
 	   				<li class="product_info_content">
 	   					<div class="yn_margin">
 		   					<h3 class="yn_h3 blue">가능</h3>
-		   					<input class="yn_check" type="checkbox">
+		   					<input id="writing_moneyY" class="yn_check" type="checkbox">
 		   					<h3 class="yn_h3 red">불가</h3>
-		   					<input class="yn_check" type="checkbox">
+		   					<input id="writing_moneyN" class="yn_check" type="checkbox">
 	   					</div>
 	   				</li>
 	   			</ul>
 	   			<ul>
 	   				<li class="product_info_title"><h3>상세설명</h3></li>
-	   				<li class="product_info_content"><textarea class="textarea" placeholder="상품 소개 내용을 입력하세요!"></textarea></li>
+	   				<li class="product_info_content"><textarea id="writing_content" class="textarea" placeholder="상품 소개 내용을 입력하세요!"></textarea></li>
 	   			</ul>
 	   		</div>
 		</article>

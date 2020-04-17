@@ -273,11 +273,6 @@ public class kakaoService {
 			System.out.println("controller access_token : " + access_Token);
 			HashMap<String, Object> userInfo = getUserInfo(access_Token);
 			System.out.println("login Controller : " + userInfo);
-			//UserBean 담기
-			UserBean ub = new UserBean();
-			ub.setId(userInfo.get("id").toString());
-			ub.setNick_name(userInfo.get("nick_name").toString());	
-			ub.setProfile_img(userInfo.get("profile_img").toString());
 			//아이디 존재시 세션에 아이디와 토큰등록
 			if(userInfo.get("id") != null) {
 				session.setAttribute("userId", userInfo.get("id"));
@@ -298,6 +293,9 @@ public class kakaoService {
 					}
 					um.setUser(userInfo);
 				}
+				//UserBean 담기
+				UserBean ub = um.getUser(session.getAttribute("userId").toString());
+				System.out.println(ub);
 			}		
 		}
 		

@@ -12,12 +12,10 @@
 <body>
 <!-- 	 <th:block th:replace="/fragments/header :: headerFragment"></th:block> -->
 	<header>
+		{{# userId}}
 		<nav>
 			<div id ="login_header">
 				<ul>
-					<li>
-						<a class="user_remove">회원탈퇴</a>
-					</li>
 					<li>
 						<a href="/logout" >로그아웃</a>
 					</li>
@@ -28,8 +26,9 @@
 						<a href="#" onclick="location.href='/writing';">상품등록</a>
 					</li>
 				</ul>
-			</div>
+			</div>	
 		</nav>
+		{{/ userId}}
 		<div id="logo_header">
 			<div class="logo">
 				<img id="logo_img" src="/img/logo.png" onclick="location.href='/';">
@@ -41,29 +40,51 @@
 				</button>
 			</div>
 			<div>
+			{{# userId}}
+				<div id="login_div"></div>
+				<button id="category_btn" class="category_btn2"> 
+					<img id="category_img" src="/img/category.png">
+				</button>
+			{{/ userId}}
+			{{^ userId}}
 				<a href="/login" class="login_a">
 					<button id="login_btn">						
 							<img id="login_img" src="/img/kakao-talk.png">
 							<span>카카오 로그인</span>
 					</button> 
 				</a>
-				<button id="category_btn"> 
+				<button id="category_btn" class="category_btn"> 
 					<img id="category_img" src="/img/category.png">
 				</button>
+				
+			{{/ userId}}	
 			</div>
 		</div>			
 	</header>
 	<aside id="menu_accordion">
 		<span class="close">&times;</span>
+		{{# userId}}
 		<div id="hello">
 			<div id="profile">
-				<img id="profile_img" src="/img/profile.jpg">
+				<img id="profile_img" src="{{profile_img}}">
 			</div>
 			<div id="hi">
-				<h3>윤경민님</h3>
+				<h3>{{nick_name}}님</h3>
 				<h1>안녕하세요!</h1>
 			</div>
 		</div>
+		{{/ userId}}
+		{{^ userId}}
+		<div id="hello">
+			<div id="profile">
+				<img id="profile_img" src="/img/default_img.jpg">
+			</div>
+			<div id="hi">
+				<h3>고객님</h3>
+				<h1>안녕하세요!</h1>
+			</div>
+		</div>
+		{{/ userId}}
 		<div id="menu_category">
 		<h1>카테고리</h1>
 			<ul id ="categoty_name">
@@ -81,7 +102,7 @@
 				<li><a href="#">기타</a></li>
 			</ul>
 		</div>
-	</aside> 
+	</aside>
 	<section>
 		<div id="overlay_t"></div>
 <!-- 		<article id="ad_article"> -->

@@ -7,6 +7,8 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
+import kr.yun.app.Bean.UserBean;
+
 @Mapper
 public interface UserMapper {
 	
@@ -27,6 +29,10 @@ public interface UserMapper {
 			"WHERE `id` = #{id}")
 	public int delUser(String id);
 	
-	
+	//회원정보 빈 등록
+	@Select("SELECT *\n" + 
+			"FROM t_user\n" + 
+			"WHERE delYn = 'N' AND id = #{id};")
+	public UserBean getUser(String id);
 	
 }
