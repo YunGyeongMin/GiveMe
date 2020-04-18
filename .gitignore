@@ -29,3 +29,6 @@ build/
 
 ### VS Code ###
 .vscode/
+
+### JDBC Config ###
+JDBC.properties

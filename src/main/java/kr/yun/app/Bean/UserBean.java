@@ -1,8 +1,9 @@
 package kr.yun.app.Bean;
 
+
 public class UserBean {
 	
-	String no;
+	int no;
 	String id;
 	String nick_name;
 	String profile_img;
@@ -16,7 +17,7 @@ public class UserBean {
 	String tel;
 	
 	
-	public String getNo() {
+	public int getNo() {
 		return no;
 	}
 
@@ -76,7 +77,7 @@ public class UserBean {
 	}
 
 	
-	public void setNo(String no) {
+	public void setNo(int no) {
 		this.no = no;
 	}
 

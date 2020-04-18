@@ -18,6 +18,7 @@ public class KakaoAPI {
 	
 	// kakao Back URL
 	public String kakao_redirect_uri1 = "http://gm.gudi.kr:8080/kakaoLogin";	// 카카오 리다이렉트 URI (리눅스용) 
-	public String kakao_redirect_uri2 = "http://gm.gudi.kr:8090/kakaoLogin";	// 카카오 리다이렉트 URI (원도우용)
+//	public String kakao_redirect_uri2 = "http://gm.gudi.kr:8090/kakaoLogin";	// 카카오 리다이렉트 URI (원도우용)
+	public String kakao_redirect_uri2 = "http://giveme.coo.kr:8080/kakaoLogin"; // 카카오 리다이렉트 URI (Home Test용)
 	
 }
