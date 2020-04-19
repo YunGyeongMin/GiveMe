@@ -1,3 +1,15 @@
+var sel_files = []; //이미지담을 배열
+var sel_file = [];
+
+//서브이미지에서 특정 이미지 삭제
+function deleteImg(index){
+	if(index > 0) sel_files.splice(index,1);
+	else if(index = 0) sel_file.splice(index,1);
+	var img_class_index = ".img_index_"+index;
+	$(img_class_index).attr("src", "/img/upload-icon.png");
+	console.log(sel_files);
+}
+
 $(document).ready(function(){
 	
 	itemRegister() 	//상품 등록
@@ -7,6 +19,7 @@ $(document).ready(function(){
 		function itemRegister(){
 			$(".register_btn").click(function(){
 				//입력칸 예외처리
+				var thumbnail_confirm = $(".imgs_wrap").eq(0).find(".product_img").prop("src");
 				if($(".product_info_content").eq(0).find("input").val() == ""){
 					alert("제목을 입력해주세요.")
 				} else if($(".product_info_content").eq(1).find(".select_input option:selected").val() == "default"){
@@ -18,7 +31,9 @@ $(document).ready(function(){
 					alert("금액제시 여부를 선택해주세요.")
 				} else if($(".product_info_content").eq(4).find("#writing_content").val() == ""){
 					alert("상세설명을 입력해주세요.")
-				} else{
+				} else if(!$(".product_img").eq(0).hasClass("img_index_0") || thumbnail_confirm.substr(thumbnail_confirm.length-16 , 16) == "/upload-icon.png"){
+					alert("썸네일 이미지를 등록해주세요.")
+				}else{
 					console.log("상품등록 리스트!")
 					//가격 value 담기
 					var price = "";
@@ -53,6 +68,25 @@ $(document).ready(function(){
 					}).done(function(d){
 						if(d > 0) {
 							console.log("상품정보등록 완료!")
+							//ajax 이미지 등록
+							if(sel_file.length > 0){
+								console.log("썸네일 파일 확인!");
+								var form = new FormData();
+								form.append("file",sel_file[0])
+								$.ajax({
+									type:"POST",
+									url:"/imgUpload",
+									enctype:"multipart/form-data",
+									processData:false,
+									contentType:false,
+									cache:false,
+									data: form
+								}).done(function(d){
+									console.log("썸네일 이미지 등록완료!")
+									
+								})
+				
+							}
 							
 						} else {
 							alert("등록 오류발생했습니다. 관리자에게 문의 하세요!")
@@ -95,34 +129,92 @@ $(document).ready(function(){
 		   }
 	   })
 	
+	   
 	//이미지 등록
 	   function imgRegister(){
-			//이미지 업로드 인풋창
+			//썸네일 이미지 업로드
 			var input = document.createElement("INPUT");
 			input.setAttribute("type", "file");
 			input.onchange = function(e){
 //				console.log("e : " + e.target);
-				var r = new FileReader();
-				r.onload = function(t){
+				var files = e.target.files;
+				var filesArr = Array.prototype.slice.call(files);
+				console.log(files,filesArr);
+				1
+				filesArr.forEach(function(f){
+					if(!f.type.match("image.*")){
+						alert("이미지 확장자만 가능합니다!")
+						files= "";
+						filesArr="";
+						return;
+					}
+					sel_file.push(f)
+					var r = new FileReader();
+					r.onload = function(t){
 //					console.log("t :" + t.target);
-					$(".product_img").eq(0).attr("src",t.target.result);
+					$(".product_img").eq(0).attr({
+						"src":t.target.result,
+						"data-key":0,
+						"data-file":f.name,
+						"onclick":"deleteImg(0)"
+						});
+					$(".product_img").eq(0).addClass("img_index_0");
+					
 				}
 				r.readAsDataURL(e.target.files[0]);
+				})
 			}
-			//다중이미지 업로드 인풋창
+			//다중 서브이미지 업로드
 			var input2 = document.createElement("INPUT");
 			input2.setAttribute("type", "file");
 			input2.setAttribute("multiple", "multiple");
 			input2.onchange = function(e){
-//				console.log("e.target : " + e.target);
-				var r = new FileReader();
-				r.onload = function(t){
-					console.log("t.target :" + t.target);
-//					console.log("t.target.result :" + t.target.result);
-//					console.log("t.target.result :" + t.target.length);
-					$(".product_img").eq(1).attr("src",t.target.result);
+				var thumbnail_confirm = $(".imgs_wrap").eq(0).find(".product_img").prop("src");
+				if(thumbnail_confirm.substr(thumbnail_confirm.length-16 , 16) == "/upload-icon.png"){
+					alert("썸네일 이미지를 등록해주세요!");
+					return;
 				}
-				r.readAsDataURL(e.target.files[0]);
+				sel_files = [];
+				var files = e.target.files;
+				var filesArr = Array.prototype.slice.call(files);
+				console.log(files,filesArr);
+				if(filesArr.length > 5){
+					alert("서브이미지는 5개까지 입니다. 다시 등록 부탁드립니다.")
+					files= "";
+					filesArr="";
+					return;
+				}
+//				console.log("e.target : " + e.target);
+				var index = 0;
+				filesArr.forEach(function(f){
+					if(!f.type.match("image.*")){
+						alert("이미지 확장자만 가능합니다!")
+						files= "";
+						filesArr="";
+						return;
+					}
+					
+					sel_files.push(f);
+					
+					var r = new FileReader();
+					r.onload = function(t){
+//						console.log("t :" + t.target);
+						var html = `<img class="product_img img_index_`
+							+ index
+							+`" src="` + t.target.result  
+							+`" style="width:100%"`
+							+`data-file="` + f.name
+							+`" data-index="`+ index
+							+`" onclick="deleteImg(`+ index + `)`
+							+`">`;
+							
+						$(".imgs_wrap").eq(index + 1).empty();
+						$(".imgs_wrap").eq(index + 1).append(html);
+						index++;
+					}
+					r.readAsDataURL(f);
+				});
+				
 			}
 			
 			//썸네일 이미지 등록
@@ -140,3 +232,6 @@ $(document).ready(function(){
 	   }
 	   
 });
+
+
+

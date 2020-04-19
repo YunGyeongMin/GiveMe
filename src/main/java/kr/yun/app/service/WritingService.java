@@ -22,7 +22,7 @@ public class WritingService {
 		ub = um.getUser(session.getAttribute("userId").toString());
 		paramMap.put("no", ub.getNo());		
 		paramMap.put("nick_name", ub.getNick_name());
-		System.out.println("service 맵담기 : " + paramMap);
+		System.out.println("service 상품등록 : " + paramMap);
 		return wm.setItem(paramMap);
 	}
 	

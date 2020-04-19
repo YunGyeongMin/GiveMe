@@ -113,36 +113,48 @@
 	   		<div class="register_area">
 		   		<div class="product">
 		   			<form>
-		   				<div class="slideshow-container">
+		   				<div id="img_container" class="slideshow-container" >
 							<div class="mySlides fade">
 							  <div class="numbertext">1 / 6 (Thumbnail)</div>
-							  <img class="product_img" src="/img/upload-icon.png" style="width:100%">
+							  <div class="imgs_wrap">
+							  	<img class="product_img" src="/img/upload-icon.png" style="width:100%">
+							  </div>
 							  <div class="text">서브 이미지는 최대 5개까지 등록가능합니다.</div>
 							</div>
 							
 							<div class="mySlides fade">
 							  <div class="numbertext">2 / 6</div>
-							  <img class="product_img" src="/img/upload-icon.png" style="width:100%">
+							  <div class="imgs_wrap">
+							  	<img class="product_img" src="/img/upload-icon.png" style="width:100%">
+							  </div>
 							</div>
 							
 							<div class="mySlides fade">
 							  <div class="numbertext">3 / 6</div>
-							  <img class="product_img" src="/img/upload-icon.png" style="width:100%">
+							  <div class="imgs_wrap">
+							  	<img class="product_img" src="/img/upload-icon.png" style="width:100%">
+							  </div>
 							</div>
 							
 							<div class="mySlides fade">
 							  <div class="numbertext">4 / 6</div>
-							  <img class="product_img" src="/img/upload-icon.png" style="width:100%">
+							  <div class="imgs_wrap">
+							  	<img class="product_img" src="/img/upload-icon.png" style="width:100%">
+							  </div>							
 							</div>
 							
 							<div class="mySlides fade">
 							  <div class="numbertext">5 / 6</div>
-							  <img class="product_img" src="/img/upload-icon.png" style="width:100%">
+							  <div class="imgs_wrap">
+							  	<img class="product_img" src="/img/upload-icon.png" style="width:100%">
+						      </div>
 							</div>
 							
 							<div class="mySlides fade">
 							  <div class="numbertext">6 / 6</div>
-							  <img class="product_img" src="/img/upload-icon.png" style="width:100%">
+							  <div class="imgs_wrap">
+							 	 <img class="product_img" src="/img/upload-icon.png" style="width:100%">
+							  </div>
 							</div>
 							
 							<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
@@ -240,33 +252,34 @@
 		</div>	
 	</footer>
 <script>
-//슬라이드쇼
-var slideIndex = 1;
-showSlides(slideIndex);
-
-function plusSlides(n) {
-  showSlides(slideIndex += n);
-}
-
-function currentSlide(n) {
-  showSlides(slideIndex = n);
-}
-
-function showSlides(n) {
-  var i;
-  var slides = document.getElementsByClassName("mySlides");
-  var dots = document.getElementsByClassName("dot");
-  if (n > slides.length) {slideIndex = 1}    
-  if (n < 1) {slideIndex = slides.length}
-  for (i = 0; i < slides.length; i++) {
-      slides[i].style.display = "none";  
-  }
-  for (i = 0; i < dots.length; i++) {
-      dots[i].className = dots[i].className.replace(" active", "");
-  }
-  slides[slideIndex-1].style.display = "block";  
-  dots[slideIndex-1].className += " active";
-}
+	//슬라이드쇼
+	var slideIndex = 1;
+	showSlides(slideIndex);
+	
+	function plusSlides(n) {
+	  showSlides(slideIndex += n);
+	}
+	
+	function currentSlide(n) {
+	  showSlides(slideIndex = n);
+	}
+	
+	function showSlides(n) {
+	  var i;
+	  var slides = document.getElementsByClassName("mySlides");
+	  var dots = document.getElementsByClassName("dot");
+	  if (n > slides.length) {slideIndex = 1}    
+	  if (n < 1) {slideIndex = slides.length}
+	  for (i = 0; i < slides.length; i++) {
+	      slides[i].style.display = "none";  
+	  }
+	  for (i = 0; i < dots.length; i++) {
+	      dots[i].className = dots[i].className.replace(" active", "");
+	  }
+	  slides[slideIndex-1].style.display = "block";  
+	  dots[slideIndex-1].className += " active";
+	}
+	
 </script>	
 </body>
 </html>
