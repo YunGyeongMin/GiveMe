@@ -32,13 +32,20 @@ public class writingController {
 		return ws.setItem(paramMap,session);
 	}
 	
-	//이미지 등록
-	@PostMapping("/imgUpload")
-	public @ResponseBody boolean imgUpload(@RequestParam("file") MultipartFile file) {
-		System.out.println("이미지 등록" + file);
-		return false;
+	//썸네일 이미지 등록
+	@PostMapping("/T_imgUpload")
+	public @ResponseBody boolean T_imgUpload(@RequestParam("file") MultipartFile file, HttpSession session) {
+		System.out.println("썸네일 이미지 등록 : " + file.getName());
+		return ws.T_imgUpload(file, session);
 	}
 	
+	//서브 이미지 등록
+	@PostMapping("/S_imgUpload")
+	public @ResponseBody boolean S_imgUpload(@RequestParam("file") MultipartFile[] files, HttpSession session) {
+		System.out.println("서브이미지 등록 갯수 : " + files.length);
+		return ws.S_imgUpload(files, session);
+	}
+
 	
 	
 }

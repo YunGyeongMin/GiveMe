@@ -276,6 +276,7 @@ public class kakaoService {
 			//아이디 존재시 세션에 아이디와 토큰등록
 			if(userInfo.get("id") != null) {
 				session.setAttribute("userId", userInfo.get("id"));
+				session.setAttribute("id", userInfo.get("id"));
 				session.setAttribute("nick_name", userInfo.get("nick_name").toString());
 				session.setAttribute("profile_img", userInfo.get("profile_img").toString());
 				if(userInfo.get("email") != null) {
