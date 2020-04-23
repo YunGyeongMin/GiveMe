@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+</head>
+<body>
+		<header>
+		{{# userId}}
+		<nav>
+			<div id ="login_header">
+				<ul>
+					<li>
+						<a href="/logout" >로그아웃</a>
+					</li>
+					<li>
+						<a href="#" onclick="location.href='/myPage';">내정보</a>
+					</li>
+					<li>
+						<a href="#" onclick="location.href='/writing';">상품등록</a>
+					</li>
+				</ul>
+			</div>	
+		</nav>
+		{{/ userId}}
+		<div id="logo_header">
+			<div class="logo">
+				<img id="logo_img" src="/img/logo.png" onclick="location.href='/';">
+			</div>
+			<div id="search">
+				<input id="search_bar"type="text" placeholder="상품명을 입력해보세요">
+				<button id="search_btn">
+					<img src="/img/search.png">
+				</button>
+			</div>
+			<div>
+			{{# userId}}
+				<div id="login_div"></div>
+				<button id="category_btn" class="category_btn2"> 
+					<img id="category_img" src="/img/category.png">
+				</button>
+			{{/ userId}}
+			{{^ userId}}
+				<a href="/login" class="login_a">
+					<button id="login_btn">						
+							<img id="login_img" src="/img/kakao-talk.png">
+							<span>카카오 로그인</span>
+					</button> 
+				</a>
+				<button id="category_btn" class="category_btn"> 
+					<img id="category_img" src="/img/category.png">
+				</button>
+			{{/ userId}}	
+			</div>
+		</div>			
+	</header>
+	<aside id="menu_accordion">
+		<span class="close">&times;</span>
+		{{# userId}}
+		<div id="hello">
+			<div id="profile">
+				<img id="profile_img" src="{{profile_img}}">
+			</div>
+			<div id="hi">
+				<h3>{{nick_name}}님</h3>
+				<h1>안녕하세요!</h1>
+			</div>
+		</div>
+		{{/ userId}}
+		{{^ userId}}
+		<div id="hello">
+			<div id="profile">
+				<img id="profile_img" src="/img/default_img.jpg">
+			</div>
+			<div id="hi">
+				<h3>고객님</h3>
+				<h1>안녕하세요!</h1>
+			</div>
+		</div>
+		{{/ userId}}
+		<div id="menu_category">
+		<h1>카테고리</h1>
+			<ul id ="categoty_name">
+				{{#getCategory}}
+				<li>
+					<a href="#" onclick="location.href='/itemList/{{no}}';">{{category_name}}</a>
+				</li>
+				{{/getCategory}}
+			</ul>	
+		</div>
+	</aside> 
+</body>
+</html>

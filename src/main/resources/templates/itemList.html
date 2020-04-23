@@ -11,99 +11,7 @@
 	<link rel="stylesheet" href="/css/itemL.css">
 </head>
 <body>
-<!-- 	 <th:block th:replace="/fragments/header :: headerFragment"></th:block> -->
-	<header>
-		{{# userId}}
-		<nav>
-			<div id ="login_header">
-				<ul>
-					<li>
-						<a href="/logout" >로그아웃</a>
-					</li>
-					<li>
-						<a href="#" onclick="location.href='/myPage';">내정보</a>
-					</li>
-					<li>
-						<a href="#" onclick="location.href='/writing';">상품등록</a>
-					</li>
-				</ul>
-			</div>	
-		</nav>
-		{{/ userId}}
-		<div id="logo_header">
-			<div class="logo">
-				<img id="logo_img" src="/img/logo.png" onclick="location.href='/';">
-			</div>
-			<div id="search">
-				<input id="search_bar"type="text" placeholder="상품명을 입력해보세요">
-				<button id="search_btn">
-					<img src="/img/search.png">
-				</button>
-			</div>
-			<div>
-			{{# userId}}
-				<div id="login_div"></div>
-				<button id="category_btn" class="category_btn2"> 
-					<img id="category_img" src="/img/category.png">
-				</button>
-			{{/ userId}}
-			{{^ userId}}
-				<a href="/login" class="login_a">
-					<button id="login_btn">						
-							<img id="login_img" src="/img/kakao-talk.png">
-							<span>카카오 로그인</span>
-					</button> 
-				</a>
-				<button id="category_btn" class="category_btn"> 
-					<img id="category_img" src="/img/category.png">
-				</button>
-				
-			{{/ userId}}	
-			</div>
-		</div>			
-	</header>
-	<aside id="menu_accordion">
-		<span class="close">&times;</span>
-		{{# userId}}
-		<div id="hello">
-			<div id="profile">
-				<img id="profile_img" src="{{profile_img}}">
-			</div>
-			<div id="hi">
-				<h3>{{nick_name}}님</h3>
-				<h1>안녕하세요!</h1>
-			</div>
-		</div>
-		{{/ userId}}
-		{{^ userId}}
-		<div id="hello">
-			<div id="profile">
-				<img id="profile_img" src="/img/default_img.jpg">
-			</div>
-			<div id="hi">
-				<h3>고객님</h3>
-				<h1>안녕하세요!</h1>
-			</div>
-		</div>
-		{{/ userId}}
-		<div id="menu_category">
-		<h1>카테고리</h1>
-			<ul id ="categoty_name">
-				<li><a href="#" onclick="location.href='/itemList';">남성의류/잡화</a></li>
-				<li><a href="#">여성의류/잡화</a></li>
-				<li><a href="#">유아동/출산</a></li>
-				<li><a href="#">디지털/가전</a></li>
-				<li><a href="#">도서/티켓/음반</a></li>
-				<li><a href="#">게임/취미</a></li>
-				<li><a href="#">애완용품</a></li>
-				<li><a href="#">스포츠/레저</a></li>
-				<li><a href="#">가구</a></li>
-				<li><a href="#">뷰티/미용</a></li>
-				<li><a href="#">식품</a></li>
-				<li><a href="#">기타</a></li>
-			</ul>
-		</div>
-	</aside>
+	{{> layout/header}}
 	<section>
 		<div id="overlay_t"></div>
 		<article id="ad_article">
@@ -194,23 +102,6 @@
 			</div>
 		</article>
 	</section>
-	<footer>
-		<div id= "footer_area">
-			<ul class="footer_itemlist">
-				<li>
-					<a class="about">GIVE ME!</a>
-				</li>
-			</ul>
-			<div class="footer_copyright">
-				<h5>© GIVE ME! All Rights Reserved.</h5>
-			</div>
-			<div class="footer_copyright">
-			사업자 등록번호 : 000-00-00000  |  서울특별시 금천구 가산동 448 대륭테크노타운 3차 308호 7강의실  |  고객문의 : baba1399@gmail.com
-			</div>
-			<div class="footer_copyright">
-			GIVE ME! 대표 윤경민
-			</div>
-		</div>	
-	</footer>
+	{{> layout/footer}}
 </body>
 </html>

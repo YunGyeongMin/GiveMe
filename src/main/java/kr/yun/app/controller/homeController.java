@@ -1,5 +1,6 @@
 package kr.yun.app.controller;
 
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,18 +22,9 @@ public class homeController {
 	public String home(Model model) {
 		model.addAttribute("newItem",hs.newItem());
 		model.addAttribute("hitItem",hs.hitItem());
+		model.addAttribute("getCategory", hs.getCategory());
 //		if(hs.test() == 1) System.out.println("DB 연결완료");
 		return "home";
 	}
-	
-	//카테고리 페이지
-	@GetMapping(value = "/{num}")
-	public String home(@PathVariable int num) {
-		
-		return "home";
-	}
-	
-	
-	
 	
 }

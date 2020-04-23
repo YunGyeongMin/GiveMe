@@ -25,6 +25,9 @@ public class HomeService {
 	public List<Map<String, Object>> hitItem(){
 		return hm.hitItem();
 	}
-	
+	//카테고리 no
+	public List<Map<String, Object>> getCategory(){
+		return hm.getCategory();
+	}
 	
 }

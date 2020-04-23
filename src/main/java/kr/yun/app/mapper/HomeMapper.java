@@ -31,4 +31,8 @@ public interface HomeMapper {
 			"ORDER BY a.hit DESC LIMIT 4;")
 	public List<Map<String, Object>> hitItem();
 	
+	//카테고리no
+	@Select("SELECT * FROM t_category WHERE `delYn` = 'N'")
+	public List<Map<String, Object>> getCategory();
+	
 }

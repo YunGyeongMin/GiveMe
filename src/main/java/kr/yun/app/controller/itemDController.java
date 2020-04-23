@@ -13,9 +13,11 @@ import kr.yun.app.service.ItemDService;
 public class itemDController {
 	
 	@Autowired ItemDService ds;
+	@Autowired HomeService hs;
 	
 	@GetMapping("/itemDeatails")
 	public String itemDeatails() {
+		
 		return "itemDeatails";
 	} 
 
@@ -25,6 +27,7 @@ public class itemDController {
 		model.addAttribute("get_img", ds.get_img(no));
 		model.addAttribute("get_ItemD", ds.get_ItemD(no));
 		model.addAttribute("writer_info", ds.get_user(user_no));
+		model.addAttribute("getCategory", hs.getCategory());
 //		System.out.println("유저정보 : " + model.getAttribute("writer_info"));
 		return "itemDeatails";
 	}
