@@ -110,67 +110,29 @@
 		<article>
 	    	<h1 class="home_title">새로 등록된 상품</h1>
 	    	<div>
-	  			<div class="item_div" onclick="location.href='/itemDeatails';">
-	  				<img style="width: 100%; height: 240px;" src="/img/sample/sample_img1.jpg">
+	    	{{#newItem}}
+	  			<div class="item_div" onclick="location.href='/itemDeatails/{{user_no}}/{{no}}';">
+	  				<img style="width: 100%; height: 240px;" src="{{img_path}}">
 	  				<div>
-	  					<h4>안쓰는 기타 나눔합니다.</h4>
-	  					<h5>무료나눔</h5>
+	  					<h4>{{title}}</h4>
+	  					<h5>{{price}}</h5>
 	  				</div>
 	  			</div>
-	  			<div class="item_div">
-	  				<img style="width: 100%;" src="/img/sample/sample_img2.jpg">
-	  				<div>
-	  					<h4>에어프라이기 나눔해요^^</h4>
-	  					<h5>무료나눔</h5>
-	  				</div>
-	  			</div>
-	  			<div class="item_div">
-	  				<img style="width: 100%;" src="/img/sample/sample_img3.jpg">
-	  				<div>
-	  					<h4>좋은 책 하나 가져가세요!</h4>
-	  					<h5>무료나눔</h5>
-	  				</div>
-	  			</div>
-	  			<div class="item_div">
-	  				<img style="width: 100%;" src="/img/sample/sample_img4.jpg">
-	  				<div>
-	  					<h4>애기들 책 가져가실분 선착순!</h4>
-	  					<h5>무료나눔</h5>
-	  				</div>
-	  			</div>
+	  		{{/newItem}}	
 	    	</div>
 		</article>
 		<article>
-	    	<h1 class="home_title">동네상품</h1>
+	    	<h1 class="home_title">인기상품</h1>
+	    	{{#hitItem}}
 	    	<div>
-	  			<div class="item_div">
-	  				<img src="/img/sample/sample_img1.jpg">
+	  			<div class="item_div" onclick="location.href='/itemDeatails/{{user_no}}/{{no}}';">
+	  				<img src="{{img_path}}">
 	  				<div>
-	  					<h4>안쓰는 기타 나눔합니다.</h4>
-	  					<h5>무료나눔</h5>
+	  					<h4>{{title}}</h4>
+	  					<h5>{{price}}</h5>
 	  				</div>
 	  			</div>
-	  			<div class="item_div">
-	  				<img src="/img/sample/sample_img2.jpg">
-	  				<div>
-	  					<h4>에어프라이기 나눔해요^^</h4>
-	  					<h5>무료나눔</h5>
-	  				</div>
-	  			</div>
-	  			<div class="item_div">
-	  				<img src="/img/sample/sample_img3.jpg">
-	  				<div>
-	  					<h4>좋은 책 하나 가져가세요!</h4>
-	  					<h5>무료나눔</h5>
-	  				</div>
-	  			</div>
-	  			<div class="item_div">
-	  				<img src="/img/sample/sample_img4.jpg">
-	  				<div>
-	  					<h4>애기들 책 가져가실분 선착순!</h4>
-	  					<h5>무료나눔</h5>
-	  				</div>
-	  			</div>
+	  		{{/hitItem}}
 	    	</div>
 		</article>
 	</section>

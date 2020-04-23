@@ -35,13 +35,15 @@ public class WritingService {
 		if(obj != null) {
 			Map<String, Object> paramMap = new HashMap<String, Object>();
 			String originFilename = file.getOriginalFilename();
-			String TfilePath = "C:/Users/GD7/git/img_upload/" + session.getAttribute("id") + "/T/" + originFilename;
-			System.out.println(TfilePath);
+//			String TfilePath = "C:/Users/GD7/git/img_upload/" + session.getAttribute("id") + "/T/" + originFilename;
+			String TfilePath = "/img_upload/" + session.getAttribute("id") + "/T/" + originFilename;
+			String TP =  session.getServletContext().getRealPath(TfilePath);
+			System.out.println(TP);
 			paramMap.put("img_type", "T");
 			paramMap.put("img_path", TfilePath);
 //			System.out.println("DB 이미지 데이터" + paramMap);
 			try {
-				FileUtils.copyInputStreamToFile(file.getInputStream(), new File(TfilePath));
+				FileUtils.copyInputStreamToFile(file.getInputStream(), new File(TP));
 				wm.T_imgUpload(paramMap);
 				return true;
 			} catch (Exception e) {
@@ -57,13 +59,15 @@ public class WritingService {
 			for(int i = 0; i < files.length; i++) {
 				Map<String, Object> paramMap = new HashMap<String, Object>();
 				String originFilename = files[i].getOriginalFilename();
-				String TfilePath = "C:/Users/GD7/git/img_upload/" + session.getAttribute("id") + "/S/" + originFilename;
-				System.out.println(TfilePath);
+//				String SfilePath = "C:/Users/GD7/git/img_upload/" + session.getAttribute("id") + "/S/" + originFilename;
+				String SfilePath = "/img_upload/" + session.getAttribute("id") + "/S/" + originFilename;
+				String SP =  session.getServletContext().getRealPath(SfilePath);
+				System.out.println(SP);
 				paramMap.put("img_type", "S");
-				paramMap.put("img_path", TfilePath);
+				paramMap.put("img_path", SfilePath);
 //				System.out.println("DB 이미지 데이터" + paramMap);
 				try {
-					FileUtils.copyInputStreamToFile(files[i].getInputStream(), new File(TfilePath));
+					FileUtils.copyInputStreamToFile(files[i].getInputStream(), new File(SP));
 					wm.T_imgUpload(paramMap);
 				} catch (Exception e) {
 					e.printStackTrace();

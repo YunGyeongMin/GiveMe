@@ -151,7 +151,7 @@ $(document).ready(function(){
 									cache:false,
 									data: form
 								}).done(function(d){
-									if(d) console.log("썸네일 이미지 등록완료!")
+									if(d) console.log("썸네일 이미지 등록완료!"); alert("상품등록 완료!");
 									if(input1.files.length > 0){
 										var form = new FormData();
 										var len = input2.files.length;
@@ -169,11 +169,13 @@ $(document).ready(function(){
 											cache:false,
 											data: form
 										}).done(function(d){
-											if(d) console.log("서브 이미지 등록완료!")
-											else console.log("서브 이미지등록 오류! 관리자에게 문의하세요.")
+											if(d){
+												 console.log("서브 이미지 등록완료!"); location.reload(true);
+											} else {console.log("서브 이미지등록 오류! 관리자에게 문의하세요.")};
 										})
 									} else {
-										console.log("서브 이미지는 찾지 못하였습니다. 서브이미지를 등록하고싶은경우 다시 등록해주세요.")
+										console.log("서브 이미지는 찾지 못하였습니다. 서브이미지를 등록하고싶은경우 다시 등록해주세요.");
+										location.reload(true);
 									}	
 										
 								})
