@@ -103,41 +103,45 @@
 				</div>
 			</div>
 			<!-- 댓글입력 -->
+			{{# userId}}
 			<div class="item_line">	
 				<div class="item_div">		
 				<div id="comment_profile" class="item_padding">
-					<img src="/img/profile.jpg">
+					<img src="{{profile_img}}">
 				</div>
 				<div class="comment_nickname_div">
-					<h5 class="comment_nickname">윤경민</h5>
+					<h5 class="comment_nickname">{{nick_name}}</h5>
 				</div>
 				<input id="comment" type="text" placeholder="댓글 입력">
 				<button id="comment_btn">댓글</button>
 				</div>
 			</div>
-			<div class="item_line">	
+			{{/ userId}}
+			{{# comment}}
+			<div class="item_line" id="comment_div">	
 				<div class="item_div">		
 				<div id="comment_profile" class="item_padding">
-					<img src="/img/profile.jpg">
+					<img src="{{t_img}}">
 				</div>
 				<div class="comment_nickname_div">
-					<h5 class="comment_nickname">윤경민</h5>
+					<h5 class="comment_nickname">{{writer}}</h5>
 				</div>
-				<span class="comment_content">안녕하세요 다른 기타와 교환하고 싶어요~ 언제쯤교환 가능할까요?? 택배로 받을 수 있을까요? 착불로 보내주시면됩니다!</span>
-				</div>
-			</div>
-			<!-- 답글입력 -->
-			<div class="item_line">	
-				<div class="item_div">		
-				<div id="comment_profile" class="item_padding">
-					<img src="/img/profile.jpg">
-				</div>
-				<div class="comment_nickname_div">
-					<h5 class="comment_nickname">윤경민</h5>
-				</div>
-				<span class="comment_content">반갑습니다! </span>
+				<span class="comment_content">{{comment}}</span>
 				</div>
 			</div>
+			{{/ comment}}
+<!-- 			<!-- 답글입력 --> -->
+<!-- 			<div class="item_line">	 -->
+<!-- 				<div class="item_div">		 -->
+<!-- 				<div id="comment_profile" class="item_padding"> -->
+<!-- 					<img src="/img/profile.jpg"> -->
+<!-- 				</div> -->
+<!-- 				<div class="comment_nickname_div"> -->
+<!-- 					<h5 class="comment_nickname">윤경민</h5> -->
+<!-- 				</div> -->
+<!-- 				<span class="comment_content">반갑습니다! </span> -->
+<!-- 				</div> -->
+<!-- 			</div> -->
 		</article>
 	</section>
 	{{> layout/footer}}

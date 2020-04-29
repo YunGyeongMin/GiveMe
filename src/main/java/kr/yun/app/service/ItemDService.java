@@ -5,6 +5,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -26,5 +28,14 @@ public class ItemDService {
 	
 	public Map<String, Object> get_user(int user_no){
 		return dm.get_user(user_no);
+	}
+	
+	public int set_comment(Map<String, Object> params) {
+		System.out.println(params);
+		return dm.set_comment(params);
+	}
+	
+	public List<Map<String, Object>> get_comment(int item_no) {
+		return dm.get_comment(item_no);
 	}
 }
